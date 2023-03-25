@@ -31,7 +31,7 @@ const Homepage = () => {
     // }
   },[])
   return (
-    <Container bgColor={"white"} minW="100%" minH={"800px"}>
+    <Container m="0px" p="0px" bgColor={"white"} minW="100%" minH={"800px"}>
         <Header/>
     <Center minH="100%">
     <Tabs margin={"40px"} color="rgb(64,50,148)" minH={{md:"400px"}}  minW={{md:"400px"}} borderRadius="10px" maxW="400px" bgColor="rgb(223,225,229)" padding={"20px"}>
