@@ -1,6 +1,7 @@
-import { TableContainer, Container, Select, HStack, Button, Center, SimpleGrid, Heading } from "@chakra-ui/react";
+import { TableContainer, Container, Select, HStack, Button, Center, SimpleGrid, Heading ,Text} from "@chakra-ui/react";
 import React from "react";
-
+import {RxEyeOpen} from "react-icons/rx"
+import { TaskInfo } from "./TaskInfo";
 export const Sprint = () => {
     return (
         <Container p="20px" minW="800px" overflow="hidden">
@@ -16,17 +17,29 @@ export const Sprint = () => {
             <Heading pt="40px" ml="30px" fontSize="30px">
                 Tasks
             </Heading>
-            <SimpleGrid p="30px" columns="4" gap="20px">
-                <Button>G</Button>
-                <Button>G</Button>
-                <Button>G</Button>
+            <SimpleGrid p="30px" columns="2" gap="20px">
+                <HStack borderRadius="10px" minW="200px" justifyContent="space-between" bgColor="rgb(43,61,92)" p="10px"> 
+                <Text color="white">Go to Gym</Text>
+                <TaskInfo/>
+              
+                </HStack>
+                <HStack borderRadius="10px" minW="200px" justifyContent="space-between" bgColor="rgb(43,61,92)" p="10px"> 
+                <Text color="white">Go to Gym</Text>
+                <Button bgColor="rgb(9,70,166)" color="white" rightIcon={<RxEyeOpen  color="white"/> }>View/Update</Button>
+                </HStack>
+                <HStack borderRadius="10px" minW="200px" justifyContent="space-between" bgColor="rgb(43,61,92)" p="10px"> 
+                <Text color="white">Go to Gym</Text>
+                <Button bgColor="rgb(9,70,166)" color="white" rightIcon={<RxEyeOpen  color="white"/> }>View/Update</Button>
+                </HStack>
+                <HStack borderRadius="10px" minW="200px" justifyContent="space-between" bgColor="rgb(43,61,92)" p="10px"> 
+                <Text color="white">Go to Gym</Text>
+                <Button bgColor="rgb(9,70,166)" color="white" rightIcon={<RxEyeOpen  color="white"/> }>View/Update</Button>
+                </HStack>
 
-                <Button>G</Button>
-                <Button>G</Button>
-                <Button>G</Button>
-                <Button>G</Button>
-
-                <Button>G</Button>
+                <HStack borderRadius="10px" minW="200px" justifyContent="space-between" bgColor="rgb(43,61,92)" p="10px"> 
+                <Text color="white">Go to Gym</Text>
+                <Button bgColor="rgb(9,70,166)" color="white" rightIcon={<RxEyeOpen  color="white"/> }>View/Update</Button>
+                </HStack>
             </SimpleGrid>
         </Container>
     )
