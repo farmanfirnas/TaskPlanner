@@ -9,8 +9,8 @@ const taskRoute=express.Router()
 
 taskRoute.post("/create",async(req,res)=>{
     try{
-        
-      const newTask= await  TaskModel.create({...req.body})
+        const tags=req.body.tags.split(",")||[]
+      const newTask= await  TaskModel.create({...req.body,tags})
       await newTask.save()
        res.status(200).send({msg:"Task Added Successfully"})
 

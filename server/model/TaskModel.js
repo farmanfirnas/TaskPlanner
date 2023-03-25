@@ -6,7 +6,10 @@ const TaskSchema=mongoose.Schema({
         assign:[
             {type:mongoose.Types.ObjectId,ref:"user",required:true}
         ],
-        sprint: {type:mongoose.Types.ObjectId,ref:"sprint",required:true}
+        sprint: {type:mongoose.Types.ObjectId,ref:"sprint",required:true},
+        tags:[
+            {type:String,default:"Other"}
+        ]
 })
 
 const TaskModel=mongoose.model("task",TaskSchema);

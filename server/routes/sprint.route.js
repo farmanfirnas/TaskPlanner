@@ -19,4 +19,15 @@ sprintRoute.post("/create",async(req,res)=>{
     }
 })
 
+//get All sprint
+
+sprintRoute.get("/all",async(req,res)=>{
+    try{
+        const allSprint=await SprintModel.find()
+        res.status(200).send(allSprint)
+    }catch(err){
+        res.status(501).send({msg:err.message})
+    }
+})
+
 module.exports={sprintRoute}
