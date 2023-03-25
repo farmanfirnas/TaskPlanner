@@ -62,4 +62,15 @@ userRoute.post("/signup",async(req,res)=>{
     }
 })
 
+//all user 
+
+userRoute.get("/all",async(req,res)=>{
+    try{
+        const allUser=await UserModel.find()
+        res.status(200).send({allUser})
+    }catch(err){
+        res.status(501).send({msg:err.message})
+    }
+})
+
 module.exports={userRoute}
