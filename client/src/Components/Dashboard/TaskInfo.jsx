@@ -23,7 +23,7 @@ import React from "react";
 import { AiFillPlayCircle } from "react-icons/ai";
 import { BsFillInfoCircleFill } from "react-icons/bs";
 import { RxEyeOpen } from "react-icons/rx"
-export const TaskInfo = ({ data = {} }) => {
+export const TaskInfo = ({ data = {},update }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const toast=useToast()
   const handleStatus = async (ev) => {
@@ -37,6 +37,17 @@ export const TaskInfo = ({ data = {} }) => {
     toast({
       description:"Status Updated Successfully"
     })
+  }
+
+  const removeTask=async()=>{
+    const resp=await fetch(`https://taskplannerbyfarman.onrender.com/task/${data._id}`,{
+      method:"DELETE"
+    })
+    toast({
+      description:"Deleted Successfully"
+    })
+    update((prev)=>!prev)
+    onClose()
   }
   return (
     <>
@@ -96,7 +107,7 @@ export const TaskInfo = ({ data = {} }) => {
 
               </SimpleGrid>
 
-              <Button mt="20px" color="white" bgColor="rgb(9,70,166)">Remove Task</Button>
+              <Button mt="20px" color="white" bgColor="rgb(9,70,166)" onClick={removeTask}>Remove Task</Button>
             </Stack>
 
 

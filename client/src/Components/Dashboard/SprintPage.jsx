@@ -11,6 +11,7 @@ export const Sprint = () => {
     settask(()=>{return resp})
         
     }
+    const[update,setsetupdate]=useState(false)
     const [sprintNo,setno]=useState(undefined)
     const getAllSprint=async()=>{
         const data=await fetch("https://taskplannerbyfarman.onrender.com/sprint/all");
@@ -22,7 +23,7 @@ export const Sprint = () => {
             getAlltask(sprintNo)
         }
         getAllSprint()
-    },[sprintNo])
+    },[sprintNo,update])
     return (
         <Container p="20px" minW="800px" overflow="hidden">
 
@@ -46,7 +47,7 @@ export const Sprint = () => {
                         return (
                             <HStack borderRadius="10px" minW="200px" justifyContent="space-between" bgColor="rgb(43,61,92)" p="10px"> 
                             <Text color="white">{e.task}</Text>
-                            <TaskInfo data={e}/>
+                            <TaskInfo update={setsetupdate} data={e}/>
                         
                             </HStack>
                         )
