@@ -51,7 +51,7 @@ export const TaskInfo = ({ data = {},update }) => {
   }
   return (
     <>
-      <Button bgColor="rgb(9,70,166)" onClick={onOpen} cursor={"pointer"} color="white" rightIcon={<RxEyeOpen color="white" />}>View/Update</Button>
+      <Button bgColor="rgb(64,50,148)" onClick={onOpen} cursor={"pointer"} color="white" rightIcon={<RxEyeOpen color="white" />}>View/Update</Button>
 
 
       <Modal
@@ -86,7 +86,7 @@ export const TaskInfo = ({ data = {},update }) => {
                   
                 </Select>
               </Stack>
-              <Heading mt="20px" color="rgb(61,144,251)" fontSize="20px">Assingned Users</Heading>
+              <Heading mt="20px" color="rgb(64,50,148)" fontSize="20px" textAlign={"left"}>ASSINGED USERS</Heading>
               <Stack pb="30px">
                 {
                   data?.assign?.map((e, i) => {
@@ -97,7 +97,7 @@ export const TaskInfo = ({ data = {},update }) => {
                   })
                 }
               </Stack>
-              <Heading mt="20px" pb="20px" color="rgb(61,144,251)" fontSize="20px">Tags</Heading>
+              <Heading mt="20px" pb="20px" color="rgb(64,50,148)" textAlign="left" fontSize="20px">TAGS</Heading>
               <SimpleGrid textAlign={"center"} gap="10px" justifyContent="center" justifyItems={"center"} pb="40px" columns="3" gaps="10px">
                 {
                   data?.tags?.map((e) => {
@@ -107,7 +107,7 @@ export const TaskInfo = ({ data = {},update }) => {
 
               </SimpleGrid>
 
-              <Button mt="20px" color="white" bgColor="rgb(9,70,166)" onClick={removeTask}>Remove Task</Button>
+              <Button mt="20px" color="white" bgColor="rgb(64,50,148)" onClick={removeTask}>Remove Task</Button>
             </Stack>
 
 
