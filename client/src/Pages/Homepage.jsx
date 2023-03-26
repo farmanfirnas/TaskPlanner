@@ -1,6 +1,7 @@
 import {Checkbox, Center, Container,FormControl,FormLabel,FormErrorMessage, FormHelperText,Input,Tabs, TabList, TabPanels, Tab, TabPanel, Button, HStack, VStack, useToast } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 import { Header } from "../Components/Header";
 
@@ -12,23 +13,86 @@ const Homepage = () => {
       password:"",
       name:""
   })
-//   const auth=useSelector((state)=>state.state.auth);
+
   const toast=useToast()
+  const navigate=useNavigate()
 
-//   const dispatch=useDispatch()
-  const handleLogin=()=>{
-    //   dispatch(loginUser(userData,toast))
+  const handleLogin=async()=>{
+ 
+    try{
+      const sendData=await fetch("https://taskplannerbyfarman.onrender.com/user/login",{
+          method:"POST",
+          headers:{"content-type":"application/json"},
+          body:JSON.stringify(userData)
+      })
+      const resp=await sendData.json();
+      if(resp?.token?.length>10){
+          localStorage.setItem("TOKEN",resp.token)
+          toast({
+              title: 'Login Success',
+           
+              status: 'success',
+              duration: 9000,
+              isClosable: true,
+            })
+            navigate("/dashboard")
+      
+         
+      }else{
+          toast({
+              title: 'Login Failed',
+              status: 'error',
+              duration: 9000,
+              isClosable: true,
+            })
+       
+      }
+      
+    }catch(err){
+      toast({
+          title: 'Login Failed',
+       
+          status: 'error',
+          duration: 9000,
+          isClosable: true,
+        })
+  
+    }
   }
 
-  const handleRegister=()=>{
-    // dispatch(signupUser(userData,toast))
+  const handleRegister=async()=>{
+    try{
+      const sendData=await fetch("https://taskplannerbyfarman.onrender.com/user/signup",{
+          method:"POST",
+          headers:{"content-type":"application/json"},
+          body:JSON.stringify(userData)
+      })
+      const resp=await sendData.json();
+     
+      toast({
+          title: 'SignUp Successfull',
+       
+          status: 'success',
+          duration: 9000,
+          isClosable: true,
+        })
+    }catch(err){
+      toast({
+          title: 'Signup Failed',
+       
+          status: 'error',
+          duration: 9000,
+          isClosable: true,
+        })
+    
+    }
 
   }
-// const navigate=useNavigate()
+
   useEffect(()=>{
-    // if(auth){
-    // navigate("/dashboard")
-    // }
+    if(localStorage.getItem("TOKEN")){
+    navigate("/dashboard")
+    }
   },[])
   return (
     <Container m="0px" p="0px" bgColor={"white"} minW="100%" minH={"800px"}>
