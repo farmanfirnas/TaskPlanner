@@ -111,9 +111,9 @@ const Homepage = () => {
       <VStack>
       <FormControl gap={"20px"}>
           <FormLabel>Email address</FormLabel>
-          <Input type="email" value={userData.email} onChange={(e)=>{setuserData({...userData,email:e.target.value})}}/>
+          <Input type="email" value={userData.email} placeholder="demo@gmail.com" onChange={(e)=>{setuserData({...userData,email:e.target.value})}}/>
           <FormLabel>Password</FormLabel>
-          <Input type="Password" value={userData.password} onChange={(e)=>{setuserData({...userData,password:e.target.value})}} />
+          <Input type="Password" value={userData.password} placeholder="password" onChange={(e)=>{setuserData({...userData,password:e.target.value})}} />
           <Checkbox mt="20px" defaultChecked>Remember me</Checkbox>
           <Button mt="30px" minW="100%" bgColor="rgb(64,50,148)" color="white" onClick={handleLogin}>LOGIN</Button>
           </FormControl>
