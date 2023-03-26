@@ -21,13 +21,13 @@ export const LeftBar=()=>{
   },[])
 
     return (
-        <Stack style={{gap:"15px"}} bgColor="rgb(235,236,240)" direction={"column"} width="20%" maxW={"30%"} justifyContent="left" minH={"630px"}  justifyItems={"left"} textAlign={"left"}   p="50px" pt="50px" pb="100px"  >
-        <Button m="auto"  justifyContent={"left"}  minW={"170px"} borderBottom="2px" borderBottomColor="rgb(37,56,88)"  color="white" hidden="true" leftIcon={<RiDashboard2Line/>}>Home</Button>
+        <Stack style={{gap:"15px"}} justifyContent={{base:"center",md:"left"}}  bgColor="rgb(235,236,240)" direction={"column"} minW={{base:"100%",md:"20%"}} maxW={{base:"100%",md:"20%"}}  minH={{base:"300px",md:"630px"}}  justifyItems={{base:"center",md:"left"}} textAlign={{base:"center",md:"left"}}   p="50px" pt="50px" pb="100px"  >
+        <Button m="auto"  justifyContent={{base:"center",md:"left"}}  minW={"170px"} borderBottom="2px" borderBottomColor="rgb(37,56,88)"  color="white" hidden="true" leftIcon={<RiDashboard2Line/>}>Home</Button>
         <NavLink to="/dashboard/">   <Button m="auto"  justifyContent={"left"}  borderBottom="2px" borderBottomColor="rgb(37,56,88)" minW={"170px"} bgColor={""} color="rgb(37,56,88)" leftIcon={<RiDashboard2Line/>}>Dashboard</Button></NavLink>
              <NavLink to="/dashboard/sprint"> <Button m="auto" justifyContent={"left"}borderBottom="2px" borderBottomColor="rgb(37,56,88)" minW={"170px"} bgColor={""} color="rgb(37,56,88)"  leftIcon={<BsFillCalendarCheckFill />}>Sprint</Button></NavLink>
           
              
-              <Button  maxW={"170px"} minW={"170px"} onClick={handlelogout}>Log Out</Button>
+           <Button  maxW={{base:"unset",md:"170px"}}   ml="auto" minW={"170px"} onClick={handlelogout} textAlign={{base:"center",md:"left"}}   >Log Out</Button>
       </Stack>
     )
 }

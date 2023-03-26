@@ -56,7 +56,7 @@ export const AddTask=()=>{
     },[])
     return(
        <Container minW={"800px"} p="20px">
-       <FormControl maxW={"400px"} ml="200px" m="" p="20px" bgColor={"rgb(235,236,240)"}>
+       <FormControl maxW={{base:"350px",md:"400px"}} ml={{base:"0px",md:"200px"}} m="" p="20px" bgColor={"rgb(235,236,240)"}>
        <Heading textAlign={"center"}>ADD TASK</Heading>
        <FormLabel >Task</FormLabel>
          <Input bgColor={"white"} type="text" value={taskData.task} onChange={(e)=>{setTask((prev)=>{return {...taskData,task:e.target.value}})}}/>

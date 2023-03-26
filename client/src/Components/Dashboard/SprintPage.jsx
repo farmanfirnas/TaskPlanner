@@ -25,9 +25,9 @@ export const Sprint = () => {
         getAllSprint()
     },[sprintNo,update])
     return (
-        <Container p="20px" minW="800px" overflow="hidden">
+        <Container p="20px" minW={{base:"100%",md:"800px"}} maxW={{base:"100%",md:"800px"}} overflow="hidden">
 
-            <HStack ml="300px">
+            <HStack ml={{base:"20px",md:"300px"}}>
                 <Select onClick={(event)=>{setno(event.target.value)}} maxW="300px" variant='flushed' placeholder='Select Sprint' >
                    {
                     allsprint?.map((e)=>{
@@ -40,7 +40,7 @@ export const Sprint = () => {
             <Heading pt="40px" ml="30px" fontSize="30px">
                 Tasks
             </Heading>
-            <SimpleGrid p="30px" columns="2" gap="20px">
+            <SimpleGrid p="30px" columns={{base:1,md:"2"}} gap="20px">
              
                 {
                     alltask?.map((e)=>{

@@ -10,7 +10,7 @@ export const Dashboard=()=>{
     return(
         <Container  minW="100vw" maxW="100vw" overflow="hidden"  p="0px">
        
-         <Stack direction="row"   minW="100%" maxW="100%" overflow="hidden">
+         <Stack direction={{base:"column",md:"row"}}   minW="100%" maxW="100%" overflow="hidden">
          <LeftBar/>
        {
         <Routes>
